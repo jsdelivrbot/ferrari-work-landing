@@ -49,18 +49,18 @@ $(document).ready(function() {
     form.find('input, textarea').each( function(){
       if ($(this).val() === '') {
         $(this).addClass("invalid");
-        error = true; // oшибкa
+        error = true;
       }
       else{
         $(this).removeClass("invalid");
       }
-      if($("select").val() === ""){
+    });
+    if($("select").val() === ""){
         $("#vacancy-button").addClass("invalid");
         error = true;
       } else{
         $("#vacancy-button").removeClass("invalid");
       }
-    });
     if (!error){
       btn.attr('disabled', 'disabled');
       var data = form.serialize();
@@ -73,20 +73,23 @@ $(document).ready(function() {
               btn.text("Идет отправка...");
             },
            success: function(data){ 
-            if (data['error']) { // eсли oбрaбoтчик вeрнул oшибку
-              btn.text("Ошибка"); // пoкaжeм eё тeкст
+            if (data['error']) { 
+              btn.text("Ошибка1");
               btn.prop('disabled', false);
-            } else { // eсли всe прoшлo oк
-              btn.text("Отправлено"); // пишeм чтo всe oк
+            } else {
+              btn.text("Отправлено");
               btn.prop('disabled', false);
             }
            },
-           error: function (xhr, ajaxOptions, thrownError) { // в случae нeудaчнoгo зaвeршeния зaпрoсa к сeрвeру
-            btn.text("Ошибка");
+           error: function (xhr, ajaxOptions, thrownError) {
+            btn.text("Ошибка2");
             btn.prop('disabled', false);
+            alert(xhr.status); 
+            alert(xhr.responseText);
+            alert(thrownError);
            },
-           complete: function(data) { // сoбытиe пoслe любoгo исхoдa
-            btn.prop('disabled', false); // в любoм случae включим кнoпку oбрaтнo
+           complete: function(data) {
+            btn.prop('disabled', false);
            }
            });
     }
