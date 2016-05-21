@@ -1,10 +1,21 @@
 <?php
+// $_POST['name'] = "test";
+// $_POST['phone'] = "+7 (921) 232-23-23";
+// $_POST['vacancy'] = "1";
+//"{"name":"sdfdslm","phone":"+1 (231) 313-12-31","va…↵2↵Продавец-кассир, г. Санкт-Петербург{"error":0}"
+// xhr = Object {readyState: 4, responseText: "{"name":"sasxa","phone":"+1 (231) 323-13-12","vaca…тор торгового зала, г. Санкт-Петербург{"error":0}", status: 200, statusText: "OK"}
+
+// echo json_encode($_POST);
 if ($_POST) { 
   $name = htmlspecialchars($_POST["name"]); 
-  $email = htmlspecialchars($_POST["phone"]);
+  $phone = htmlspecialchars($_POST["phone"]);
   $vacancy = intval(htmlspecialchars($_POST["vacancy"]));
+  // echo $name."\n";
+  // echo $phone."\n";
+  // echo $vacancy."\n";
+
   $json = array();
-  if (!$name or !$phone or !$vacansy) {
+  if (!$name or !$phone or !$vacancy) {
     $json['error'] = 'Вы зaпoлнили нe всe пoля! oбмaнуть рeшили?';
     echo json_encode($json);
     die();
@@ -22,6 +33,7 @@ if ($_POST) {
       break;
     default: throw new Exception('Unexpected case in vacancy!');
   }
+  // echo $text_vacancy;
 
   function mime_header_encode($str, $data_charset, $send_charset) { 
     if($data_charset != $send_charset)
@@ -62,10 +74,10 @@ if ($_POST) {
   $emailgo->to_name= $name;
   $emailgo->subject= 'Заявка на вакансию с посадочного сайта'; // тeмa
   $emailgo->body= "Заявка \r\n Имя : ".$name."\r\n Телефон : ".$phone."\r\nВакансия : ".$text_vacancy."\r\n";
+  // $emailgo->body= "test message";
   $emailgo->send();
 
   $json['error'] = 0;
-
   echo json_encode($json);
 } else {
   echo 'GET LOST!';
