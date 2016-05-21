@@ -1,0 +1,415 @@
+/**************************************/
+/* Styles (LESS/CSS) files supervisor */
+/**************************************/
+/* Third party */
+@import '../../bower_components/select-menu-jquery/jquery-ui.css';
+@import '../../bower_components/select-menu-jquery/jquery-ui.theme.css';
+/* Custom */
+/***************************************************/
+/* Set custom or change third-party Less variables */
+/***************************************************/
+/* Third party */
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+/*
+These "retina group" variables are mappings for the naming and pairing of normal and retina sprites.
+
+The list formatted variables are intended for mixins like `retina-sprite` and `retina-sprites`.
+*/
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+*/
+/*
+The `retina-sprite` class sets up rules and a media query for a sprite/retina sprite.
+  It should be used with a "retina group" variable.
+
+The media query is from CSS Tricks: https://css-tricks.com/snippets/css/retina-display-media-query/
+
+@icon-home-group: 'icon-home' @icon-home @icon-home-2x;
+
+.icon-home {
+  .retina-sprite(@icon-home-group);
+}
+*/
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+/*
+The `.retina-sprites` mixin generates a CSS rule and media query for retina groups
+  This yields the same output as CSS retina template but can be overridden in LESS
+
+.retina-sprites(@retina-groups);
+*/
+.svg-sprite--html5
+{
+    width: 47px;
+    height: 47px;
+
+    background-image: url('../img/sprites/svg/svg-sprite.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 47px 47px;
+}
+.no-svg .svg-sprite--html5
+{
+    background-image: url('../img/sprites/svg/svg-sprite.png');
+}
+.png-sprite:before
+{
+    display: inline-block;
+
+    content: '';
+}
+.png-sprite--html5:before
+{
+    width: 32px;
+    height: 32px;
+
+    background-image: url(../img/sprites/png/png-sprite.png);
+    background-position: 0 0;
+}
+.png-sprite--html5-retina:before
+{
+    width: 32px;
+    height: 32px;
+
+    background-image: url(../img/sprites/png/png-sprite.png);
+    background-position: 0 0;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)
+{
+    .png-sprite--html5-retina:before
+    {
+        background-image: url(../img/sprites/png/png-sprite-2x.png);
+        background-size: 32px 32px;
+    }
+}
+.svg-sprite:before
+{
+    display: inline-block;
+
+    width: 32px!important;
+    height: 32px!important;
+
+    content: '';
+
+    background-size: contain!important;
+}
+.svg-sprite--html5-icon:before
+{
+    width: 47px;
+    height: 47px;
+
+    background-image: url('../img/sprites/svg/svg-sprite.svg');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: 47px 47px;
+}
+.no-svg .svg-sprite--html5-icon:before
+{
+    background-image: url('../img/sprites/svg/svg-sprite.png');
+}
+.prettyprint
+{
+    white-space: inherit;
+}
+.prettyprint ol li
+{
+    list-style-type: inherit;
+}
+.navbar .navbar-nav > li > iframe
+{
+    margin-top: 20px;
+    margin-left: 5px;
+}
+.navbar .navbar-nav > li > .social-likes
+{
+    margin-top: 15px!important;
+    margin-left: 15px!important;
+}
+html,
+body
+{
+    margin: 0;
+    padding: 0;
+
+    background-color: #fafafa;
+}
+body
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    color: #343434;
+}
+body *
+{
+    box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    font-style: italic;
+
+    margin: 0;
+
+    text-transform: uppercase;
+}
+h2
+{
+    font-size: 35px;
+    line-height: 48px;
+
+    color: #fff;
+}
+h3
+{
+    margin: 40px 0;
+
+    color: #d40000;
+}
+h4
+{
+    font-size: 14px;
+
+    color: #d40000;
+}
+a
+{
+    text-decoration: none;
+
+    color: inherit;
+}
+a:hover
+{
+    color: #d40000;
+}
+.url
+{
+    font-size: 14px;
+
+    height: 60px;
+    padding-top: 20px;
+
+    cursor: pointer;
+
+    background-color: #fff;
+}
+.mbr-container
+{
+    width: 100%;
+    max-width: 540px;
+    margin: auto;
+
+    background-color: #fff;
+}
+.mbr-slide
+{
+    position: relative;
+
+    height: 430px;
+
+    text-align: center;
+}
+.mbr-slide--fullheight
+{
+    height: 100vh;
+    max-height: 667px;
+}
+.bg-banner
+{
+    width: 100%;
+    height: calc(100% - 90px);
+
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+.centered
+{
+    display: table;
+
+    text-align: center;
+}
+.centered > *
+{
+    display: table-cell;
+
+    vertical-align: middle;
+}
+.white
+{
+    color: #fff;
+}
+.white *
+{
+    color: #fff;
+}
+.logo
+{
+    height: 90px;
+
+    background-color: #d40000;
+}
+.logo img
+{
+    height: 100%;
+}
+.desc
+{
+    font-size: 20px;
+    font-weight: 300;
+
+    padding: 0 30px;
+}
+hr
+{
+    width: 94px;
+    margin: 40px auto;
+}
+form
+{
+    width: 200px;
+    margin: auto;
+}
+input,
+select,
+#vacancy-button
+{
+    font-size: 15px;
+
+    width: 100%;
+    margin-bottom: 40px;
+    padding-bottom: 10px;
+
+    border: 0;
+    border-bottom: 1px solid #343434;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: 0;
+}
+input:focus,
+select:focus,
+#vacancy-button:focus
+{
+    outline: none;
+    box-shadow: 0;
+}
+input.invalid,
+select.invalid,
+#vacancy-button.invalid
+{
+    border-bottom: 2px solid #d40000;
+}
+::-webkit-input-placeholder
+{
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    color: #343434;
+}
+#vacancy-button
+{
+    padding: 0;
+    padding-bottom: 10px;
+}
+#vacancy-button .ui-icon
+{
+    position: relative;
+    top: 2px;
+
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+    -webkit-transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+
+    background-image: url(../img/svg/arrow.svg);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+#vacancy-button[aria-expanded='true'] .ui-icon
+{
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+}
+#vacancy-menu li
+{
+    font-size: 14px;
+
+    padding: 12px 10px;
+
+    border: 0;
+    border-bottom: 1px solid #343434;
+}
+#vacancy-menu li:first-child
+{
+    display: none;
+}
+button
+{
+    font-size: 15px;
+    font-weight: 700;
+
+    width: 100%;
+    height: 46px;
+    margin-bottom: 70px;
+
+    cursor: pointer;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    color: #fff;
+    border: 0;
+    border-radius: 0;
+    background-color: #a60a10;
+}
+button:focus
+{
+    outline: none;
+    box-shadow: 0;
+}
+.ui-selectmenu-open
+{
+    width: 200px;
+}
