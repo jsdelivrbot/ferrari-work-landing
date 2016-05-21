@@ -14929,15 +14929,16 @@ $(document).ready(function() {
       clearInterval(timer);
       timer = setTimeout(function(){
         full_height.each(function(){
-          $(temp).height(window.innerHeight);
+          $(this).height(window.innerHeight);
         });
         console.log("resize");
       },200);
     }
-    this.setFullHeight();
+    // self.setFullHeight();
   }
 
   var window_control = new SizeControl();
+  window_control.setFullHeight();
   $(window).resize(
     window_control.setFullHeight
   );
