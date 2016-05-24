@@ -68,9 +68,9 @@ if ($_POST) {
   }
 
   $emailgo= new TEmail; 
-  $emailgo->from_email= 'some@mailserver.com'; 
+  $emailgo->from_email= 'vacancy-form@ferrari-store.ru';
   $emailgo->from_name= 'Форма вакансий';
-  $emailgo->to_email= 'kulikov@mbrooks.ru'; 
+  $emailgo->to_email= 'team@ferrari-store.ru';
   $emailgo->to_name= $name;
   $emailgo->subject= 'Заявка на вакансию с посадочного сайта'; // тeмa
   $emailgo->body= "Заявка \r\n Имя : ".$name."\r\n Телефон : ".$phone."\r\nВакансия : ".$text_vacancy."\r\n";
